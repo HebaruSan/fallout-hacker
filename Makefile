@@ -9,7 +9,7 @@ clean:
 	jadejs < $< > $@
 
 %.css: %.styl
-	stylus $<
+	stylus -c -m $<
 
 %.js: %.coffee
-	coffee -c $<
+	coffee -c -b -m  $<
