@@ -1,0 +1,79 @@
+html, body
+	margin	0
+	padding	0
+	color	hsla(240, 5%, 20%, 1)
+	font-family	Verdana, Verana Sans, Ubuntu, Trebuchet MS, Luxi Sans, FreeSans, DejaVu Sans, Bitstream Vera Sans, Oxygen-Sans, Arial, sans-serif
+	font-size	12pt
+
+#content
+	margin	0
+	padding	10px
+
+.outerFrame
+	width	90%
+	display	table
+	margin	20px auto
+	padding	10px
+	box-shadow	0 2px 15px hsla(240, 5%, 10%, 0.2)
+	border-radius	3px
+
+.innerFrame
+	display	table-cell
+	padding	10px
+
+	&:nth-child(2)
+		border-left	1px solid hsla(240, 10%, 80%, 80%)
+
+.fullFrame
+	width	100%
+
+.leftFrame, .rightFrame
+	width	50%
+
+h1, h2, th
+	color	hsla(240, 20%, 50%, 1)
+	margin	0
+	padding	0
+	font-variant	small-caps
+
+textarea
+	width	95%
+	height	6em
+	border	1px solid hsla(240, 10%, 80%, 80%)
+	font-family	Consolas, monospace
+	font-size	11pt
+
+table
+	border-collapse	collapse
+
+.matchTable
+	margin	10px
+	font-size	10pt
+
+.tried *
+	text-decoration	line-through
+.newWord > *
+	border-top	1px solid hsla(240, 10%, 80%, 80%)
+
+th
+	text-align	left
+	border-bottom	1px solid hsla(240, 10%, 80%, 80%)
+td
+	vertical-align	top
+th, td
+	padding	2px
+
+.ratingCell
+	text-align	center
+
+a:link, a:visited
+	display	inline-block
+	padding	4px
+	border-radius	0.4em
+	text-decoration	none
+	color	hsla(240, 0, 100%, 1)
+	background-color	hsla(240, 20%, 50%, 1)
+a:hover
+	background-color	hsla(240, 20%, 60%, 1)
+a:active
+	background-color	hsla(240, 20%, 40%, 1)

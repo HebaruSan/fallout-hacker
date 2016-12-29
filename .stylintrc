@@ -1,0 +1,17 @@
+{
+  "brackets": "never",
+  "colons": "never",
+  "sortOrder": false,
+  "semicolons": "never",
+  "commaSpace": "always",
+  "duplicates": true,
+  "efficient": "always",
+  "indentPref": false,
+  "leadingZero": "always",
+  "mixed": true,
+  "none": "never",
+  "parenSpace": "never",
+  "quotePref": "single",
+  "stackedProperties": "never",
+  "zeroUnits": "never"
+}
