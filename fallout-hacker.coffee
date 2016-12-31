@@ -58,7 +58,7 @@ class MatchTable
 		headerRow.appendChild mkElt('th',
 			innerHTML: 'Word')
 		headerRow.appendChild mkElt('th',
-			innerHTML: 'Similarity')
+			innerHTML: 'Likeness')
 		headerRow.appendChild mkElt('th',
 			innerHTML: 'Compatible Words')
 		elt.appendChild headerRow
