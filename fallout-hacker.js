@@ -88,7 +88,7 @@ MatchTable = (function() {
       innerHTML: 'Word'
     }));
     headerRow.appendChild(mkElt('th', {
-      innerHTML: 'Similarity'
+      innerHTML: 'Likeness'
     }));
     headerRow.appendChild(mkElt('th', {
       innerHTML: 'Compatible Words'
