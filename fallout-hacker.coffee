@@ -15,6 +15,21 @@ numMatches = (word1, word2) ->
 
 numKeys = (hash) -> Object.keys(hash).length
 
+listLengthSummary = (hash) -> (words.length for likeness, words of hash).sort()
+
+# The better option has shorter word lists, or fewer long ones.
+likenessCompare = (hash1, hash2) ->
+	summary1 = listLengthSummary hash1
+	summary2 = listLengthSummary hash2
+	while summary1.length > 0 and summary2.length > 0
+		first1 = summary1.pop()
+		first2 = summary2.pop()
+		if first1 < first2
+			return -1
+		else if first2 < first1
+			return 1
+	return 0
+
 class MatchTable
 	constructor: (@words) ->
 
@@ -42,13 +57,7 @@ class MatchTable
 	wordsToTry: ->
 		# Sort messes up 'this', so we need global or local variables
 		matchTable = @matchTable
-		return @words.sort (a, b) ->
-			if numKeys(matchTable[a]) > numKeys(matchTable[b])
-				-1
-			else if numKeys(matchTable[a]) < numKeys(matchTable[b])
-				1
-			else
-				0
+		return @words.sort (a, b) -> likenessCompare matchTable[a], matchTable[b]
 
 	toElt: ->
 		elt = mkElt 'table',
@@ -67,26 +76,26 @@ class MatchTable
 			others = @matchTable[word]
 			wordRowCount = 0
 
-			for rating, wordList of others
+			for likeness, wordList of others
 				row = mkElt 'tr'
 
 				if wordRowCount is 0
 					row.classList.add 'newWord'
 					row.appendChild mkElt('td',
 						innerHTML:	word
-						rowSpan:	Object.keys(others).length)
+						rowSpan:	numKeys others)
 					++wordRowCount
 
-				ratingCell = mkElt 'td',
-					className:	'ratingCell'
+				likenessCell = mkElt 'td',
+					className:	'likenessCell'
 				if wordList.length > 1
-					ratingButton = mkElt 'button',
-						innerHTML:	rating
-					@addButtonClick ratingButton, wordList
-					ratingCell.appendChild ratingButton
+					likenessButton = mkElt 'button',
+						innerHTML:	likeness
+					@addButtonClick likenessButton, wordList
+					likenessCell.appendChild likenessButton
 				else
-					ratingCell.innerHTML = rating
-				row.appendChild ratingCell
+					likenessCell.innerHTML = likeness
+				row.appendChild likenessCell
 
 				otherCell = mkElt 'td'
 				for other in wordList
@@ -101,7 +110,7 @@ class MatchTable
 			className: 'newWord'
 		lastRow.appendChild mkElt 'td'
 		resetCell = mkElt 'td',
-			className: 'ratingCell'
+			className: 'likenessCell'
 		resetButton = mkElt 'button',
 			innerHTML: 'Reset'
 		resetButton.addEventListener 'click', (event) ->
