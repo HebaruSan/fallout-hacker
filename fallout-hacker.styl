@@ -38,10 +38,14 @@ h1, h2, th
 
 textarea
 	width	95%
-	height	6em
+	height	6rem
 	border	1px solid hsla(240, 10%, 80%, 80%)
 	font-family	Consolas, monospace
 	font-size	11pt
+
+#output
+	max-height	20rem
+	overflow	auto
 
 table
 	border-collapse	collapse
@@ -49,6 +53,13 @@ table
 .matchTable
 	margin	10px
 	font-size	10pt
+	animation	fadein 0.2s
+
+@keyframes fadein
+	from
+		opacity	0
+	to
+		opacity 1
 
 .tried *
 	text-decoration	line-through
@@ -69,7 +80,7 @@ th, td
 a:link, a:visited
 	display	inline-block
 	padding	4px
-	border-radius	0.4em
+	border-radius	0.4rem
 	text-decoration	none
 	color	hsla(240, 0, 100%, 1)
 	background-color	hsla(240, 20%, 50%, 1)
