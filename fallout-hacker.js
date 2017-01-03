@@ -167,7 +167,7 @@ MatchTable = (function() {
       className: 'likenessCell'
     });
     resetButton = mkElt('button', {
-      innerHTML: 'Reset'
+      innerHTML: '↺&nbsp;Reset'
     });
     resetButton.addEventListener('click', function(event) {
       var input, words;

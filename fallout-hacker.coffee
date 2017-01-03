@@ -112,7 +112,7 @@ class MatchTable
 		resetCell = mkElt 'td',
 			className: 'likenessCell'
 		resetButton = mkElt 'button',
-			innerHTML: 'Reset'
+			innerHTML: '↺&nbsp;Reset'
 		resetButton.addEventListener 'click', (event) ->
 			input = document.getElementById 'input'
 			words = input.value.trim().split /\W+/
