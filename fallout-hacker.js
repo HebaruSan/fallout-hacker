@@ -37,7 +37,9 @@ listLengthSummary = function(hash) {
       results.push(words.length);
     }
     return results;
-  })()).sort();
+  })()).sort(function(a, b) {
+    return a - b;
+  });
 };
 
 likenessCompare = function(hash1, hash2) {
@@ -49,7 +51,7 @@ likenessCompare = function(hash1, hash2) {
     first2 = summary2.pop();
     if (first1 < first2) {
       return -1;
-    } else if (first2 < first1) {
+    } else if (first1 > first2) {
       return 1;
     }
   }

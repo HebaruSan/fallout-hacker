@@ -15,7 +15,7 @@ numMatches = (word1, word2) ->
 
 numKeys = (hash) -> Object.keys(hash).length
 
-listLengthSummary = (hash) -> (words.length for likeness, words of hash).sort()
+listLengthSummary = (hash) -> (words.length for likeness, words of hash).sort (a, b) -> a - b
 
 # The better option has shorter word lists, or fewer long ones.
 likenessCompare = (hash1, hash2) ->
@@ -26,7 +26,7 @@ likenessCompare = (hash1, hash2) ->
 		first2 = summary2.pop()
 		if first1 < first2
 			return -1
-		else if first2 < first1
+		else if first1 > first2
 			return 1
 	return 0
 
